@@ -1,2 +1,2 @@
-# unhide-chat
+# UnhideChat
 Minecraft mod adding a toggle/hold hotkey to expand/unhide the chat.
