@@ -10,14 +10,14 @@ public class ChatHandler {
     public static final String KEY_CATEGORY = "UnhideChat";
 
     private static KeyBinding unhideChatKeyHold;
-    private static StickyKeyBinding unhideChatKeyToggle;
+    private static StickyKeyBinding hideChatKeyToggle;
 
     private static KeyBinding expandChatKeyHold;
     private static StickyKeyBinding expandChatKeyToggle;
 
     public static void registerKeyBindings() {
         KeyBindingHelper.registerKeyBinding(unhideChatKeyHold);
-        KeyBindingHelper.registerKeyBinding(unhideChatKeyToggle);
+        KeyBindingHelper.registerKeyBinding(hideChatKeyToggle);
         KeyBindingHelper.registerKeyBinding(expandChatKeyHold);
         KeyBindingHelper.registerKeyBinding(expandChatKeyToggle);
     }
@@ -30,7 +30,7 @@ public class ChatHandler {
                 KEY_CATEGORY
         );
 
-        unhideChatKeyToggle = new StickyKeyBinding(
+        hideChatKeyToggle = new StickyKeyBinding(
                 "unhideChatKeyToggle",
                 GLFW.GLFW_KEY_X,
                 KEY_CATEGORY,
@@ -53,7 +53,7 @@ public class ChatHandler {
     }
 
     public static boolean isHidden() {
-        if (unhideChatKeyToggle.isPressed()) {
+        if (!hideChatKeyToggle.isPressed()) {
             return false;
         }
         return !unhideChatKeyHold.isPressed();
